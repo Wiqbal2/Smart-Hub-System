@@ -1,0 +1,194 @@
+/*unordered list Rooms devices garden etc*/
+ul{
+    list-style-type: none; 
+}
+
+/* list elemets block*/
+li{
+    float:left;
+    padding: 10px 20px; /*top/bottom left/right between buttons*/
+    background-color: #07d1f5;
+}
+
+
+/* Rooms Button */
+.roomsbtn {
+    color: black;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(187, 182, 182);
+  }
+  
+  /* things inside dropdown ie kitchen etc */
+  .rooms {
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* rooms Content (Hidden by Default) */
+  .rooms-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  /* Links inside the rooms */
+  .rooms-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of rooms links on hover */
+  .rooms-content a:hover {background-color: #ddd;}
+  
+  /* Show the rooms menu on hover */
+  .rooms:hover .rooms-content {display: block;}
+  
+  /* Change the background color of the rooms button when the rooms content is shown */
+  .rooms:hover .roomsbtn {background-color: wheat;}
+
+/***********************************/
+
+/********* Devices Button ***********/
+.devicesbtn {
+    color: black;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(187, 182, 182);
+  }
+  
+  /* things inside dropdown ie coffee-maker etc */
+  .devices {
+    font-size: 30px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* devives Content (Hidden by Default) */
+  .devices-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
+  }
+  
+  /* Links inside the devies */
+  .devices-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of devices links on hover */
+  .devices-content a:hover {background-color: #ddd;}
+  
+  /* Show the rooms menu on hover */
+  .devices:hover .devices-content {display: block;}
+  
+  /* Change the background color of the devies button when the rooms content is shown */
+  .devices:hover .devicesbtn {background-color: wheat;}
+
+/***********************************/
+
+  /********* Garden Button ***********/
+  .gardenbtn {
+  color: black;
+  padding: 10px;
+  font-size: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(187, 182, 182);
+}
+
+/* things inside dropdown ie irrigation etc */
+.garden {
+  font-size: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+/* garden Content (Hidden by Default) */
+.garden-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  
+}
+
+/* Links inside the garden */
+.garden-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of garden links on hover */
+.garden-content a:hover {background-color: #ddd;}
+
+/* Show the garden menu on hover */
+.garden:hover .garden-content {display: block;}
+
+/* Change the background color of the garden button when the gardenscontent is shown */
+.garden:hover .gardenbtn {background-color: wheat;}
+
+/***********************************/
+
+  /********* History Button ***********/
+  .historybtn {
+    color: black;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(187, 182, 182);
+  }
+  
+  /* things inside dropdown ie actual history etc */
+  .history {
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* garden Content (Hidden by Default) */
+  .history-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  /* Links inside the garden */
+  .history-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of garden links on hover */
+  .history-content a:hover {background-color: #ddd;}
+  
+  /* Show the garden menu on hover */
+  .history:hover .history-content {display: block;}
+  
+  /* Change the background color of the garden button when the gardenscontent is shown */
+  .history:hover .historybtn {background-color: wheat;}
+
+
