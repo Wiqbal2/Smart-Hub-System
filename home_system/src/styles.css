@@ -1,0 +1,23 @@
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.dropdown-toggle:hover {
+  background-color: skyblue;
+}
+
+.navbar .navbar-brand:hover {
+  color: skyblue;
+}
+
+.home-image {
+  height: 350px;
+  width: 550px;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
+h1 {
+  padding-top: 10px;
+}
