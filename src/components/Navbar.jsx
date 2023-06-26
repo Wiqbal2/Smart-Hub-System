@@ -20,6 +20,7 @@ function Navbar() {
                     <NavDropdown title="Devices" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#">Coffee-Maker</NavDropdown.Item>
                         <NavDropdown.Item href="#">Robot Vacuum</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Fridge</NavDropdown.Item>
                         <NavDropdown.Item href="#">+ add device</NavDropdown.Item>
                     </NavDropdown>
                     {/* GARDEN DROPDOWN */}
