@@ -1,6 +1,8 @@
 import React from 'react';
-import { Navbar as BootstrapNavbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, NavDropdown} from 'react-bootstrap';
 import '../styles.css';
+import { Link } from 'react-router-dom';
+import Room from './Room'
 
 function Navbar() {
     return (
@@ -12,7 +14,7 @@ function Navbar() {
                 <Nav className="mr-auto">
                     {/* ROOMS DROPDOWN */}
                     <NavDropdown title="Rooms" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">Kitchen</NavDropdown.Item>
+                        <NavDropdown.Item href="/" as={Link} to="/Room">Kitchen</NavDropdown.Item>
                         <NavDropdown.Item href="#">Living-room</NavDropdown.Item>
                         <NavDropdown.Item href="#">+ add room</NavDropdown.Item>
                     </NavDropdown>

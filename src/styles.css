@@ -34,6 +34,17 @@ h1 {
 }
 */
 
+.temp-body {
+	font-family: sans-serif;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 100vh;
+}
+
 .app-container {
 	height: 400px;
 	width: 300px;
