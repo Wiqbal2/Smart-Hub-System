@@ -9,9 +9,9 @@ function Temperature() {
                 <div class='temperature-display-container'>
 				    <div className='temperature-display'>{temperatureValue}°F</div>
                 </div>
-                <div class='button-container'>
-                    <button onClick={() => setTemperatureValue(temperatureValue + 1)}>+</button>
-                    <button onClick={() => setTemperatureValue(temperatureValue - 1)}>-</button>
+                <div class='button-div'>
+                    <button onClick={() => setTemperatureValue(temperatureValue + 1)}><b>+</b></button>
+                    <button onClick={() => setTemperatureValue(temperatureValue - 1)}><b>-</b></button>
                 </div>
             </div>
         </div>
