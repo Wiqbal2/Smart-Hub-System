@@ -3,6 +3,8 @@ import { Navbar as BootstrapNavbar, Nav, NavDropdown} from 'react-bootstrap';
 import '../styles.css';
 import { Link } from 'react-router-dom';
 import Room from './Room'
+import Device from './Device';
+
 
 function Navbar() {
     return (
@@ -15,15 +17,15 @@ function Navbar() {
                     {/* ROOMS DROPDOWN */}
                     <NavDropdown title="Rooms" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/" as={Link} to="/Room">Kitchen</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Living-room</NavDropdown.Item>
+                        <NavDropdown.Item href="/" as= {Link} to="/Room">Living-room</NavDropdown.Item>
                         <NavDropdown.Item href="#">+ add room</NavDropdown.Item>
                     </NavDropdown>
                     {/* DEVICES DROPDOWN */}
                     <NavDropdown title="Devices" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">Coffee-Maker</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Robot Vacuum</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Fridge</NavDropdown.Item>
-                        <NavDropdown.Item href="#">+ add device</NavDropdown.Item>
+                        <NavDropdown.Item href="/" as = {Link} to="/Device/Coffee-Maker">Coffee-Maker</NavDropdown.Item>
+                        <NavDropdown.Item href="/" as = {Link} to="/Device/Robot-Vacuum">Robot Vacuum</NavDropdown.Item>
+                        <NavDropdown.Item href="/" as = {Link} to="/Device/Fridge">Fridge</NavDropdown.Item>
+                        <NavDropdown.Item href= "#">+ add device</NavDropdown.Item>
                     </NavDropdown>
                     {/* GARDEN DROPDOWN */}
                     <NavDropdown title="Garden" id="basic-nav-dropdown">
@@ -42,3 +44,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
