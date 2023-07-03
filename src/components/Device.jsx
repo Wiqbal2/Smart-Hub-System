@@ -54,26 +54,71 @@
 // }
 
 // export default Device;
+
+
+
+// import '../styles.css';
+// import React, { useState } from 'react';
+// import { Button } from 'react-bootstrap';
+// import { useParams } from 'react-router-dom';
+
+// function Device() {
+//   const [isOn, setIsOn] = useState(false);
+//   const { deviceName } = useParams();
+
+//   const handleToggle = () => {
+//     setIsOn(!isOn);
+//   };
+
+//   return (
+//     <div>
+//       <h1>Device: {deviceName}</h1>
+//       <div className="OnOff"> 
+//       <Button variant={isOn ? 'success' : 'danger'} onClick={handleToggle}>
+//         {isOn ? 'On' : 'Off'}
+//       </Button>
+      
+//       </div>
+      
+//     </div>
+//   );
+// }
+
+// export default Device;
+
+import '../styles.css';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+
+// Initial state of devices
+const initialDeviceStates = {
+  'Coffee-Maker': false,
+  'Robot-Vacuum': false,
+  Fridge: false,
+};
 
 function Device() {
-  const [switchState, setSwitchState] = useState(false);
+  const [deviceStates, setDeviceStates] = useState(initialDeviceStates);
+  const { deviceName } = useParams();
 
-  const handleSwitchChange = () => {
-    setSwitchState(!switchState);
+  const handleToggle = () => {
+    setDeviceStates((prevStates) => ({
+      ...prevStates,
+      [deviceName]: !prevStates[deviceName],
+    }));
   };
+
+  const isOn = deviceStates[deviceName];
 
   return (
     <div>
-      <h1>Device</h1>
-      <Form.Check
-        type="switch"
-        id="deviceSwitch"
-        label="Toggle Device"
-        checked={switchState}
-        onChange={handleSwitchChange}
-      />
+      <h1>Device: {deviceName}</h1>
+      <div className="OnOff">
+        <Button variant={isOn ? 'success' : 'danger'} onClick={handleToggle}>
+          {isOn ? 'On' : 'Off'}
+        </Button>
+      </div>
     </div>
   );
 }

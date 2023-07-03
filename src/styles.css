@@ -149,3 +149,13 @@ button:focus {
 	width: fit-content;
 }
 
+.OnOff {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.OnOff:hover {
+	background: rgb(0, 0, 0);
+	cursor: pointer;
+}
