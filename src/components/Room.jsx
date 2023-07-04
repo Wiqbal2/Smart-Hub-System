@@ -3,22 +3,39 @@ import { Navbar as BootstrapNavbar, Nav, NavDropdown, Navbar } from 'react-boots
 import '../styles.css';
 import Temperature  from '../Utilities.js';
 
-function Room() {
+class Room extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {temp: 75};
+  }
+
+  handleTempChange = (temp) => {
+    this.setState({temp:temp});
+    
+  }
+
+  render(){
+
   // Call the imported function
-  const result = Temperature();
+  //const result = Temperature();
 
   return (
 
     <div>
         <Navbar />
 
-        <Temperature /> 
+        <Temperature 
+         temp={this.state.temp}
+         onTempChange={this.handleTempChange}
+        /> 
 
 
        
       {/* JSX content */}
     </div>
   );
+}
 }
 
 export default Room;
