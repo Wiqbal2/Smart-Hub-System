@@ -1,25 +1,25 @@
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
+	color: white;
 }
 
 .dropdown-toggle:hover {
-  background-color: skyblue;
+	background-color: skyblue;
 }
 
 .navbar .navbar-brand:hover {
-  color: skyblue;
+	color: skyblue;
 }
 
 .home-image {
-  height: 350px;
-  width: 550px;
-  position: absolute;
-  top: 15%;
-  left: 30%;
+	height: 350px;
+	width: 550px;
+	position: absolute;
+	top: 15%;
+	left: 30%;
 }
 
 .test {
-  padding-top: 10px;
+	padding-top: 10px;
 }
 
 
@@ -91,38 +91,65 @@ button:hover {
 
 
 .home-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .dashboard {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 500px;
-    width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 500px;
+	width: 100%;
 }
 
-.room-temp, .date-time, .active-rooms {
-    width: 30%;  
-    text-align: center;
+.room-temp,
+.date-time,
+.active-rooms {
+	width: 30%;
+	text-align: center;
 }
 
-.room-temp table, .active-rooms table {
-    width: 100%;
-    height: auto;
-    border-collapse: collapse;
+.room-temp table,
+.active-rooms table {
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
 }
 
-.room-temp td, .active-rooms td {
-    border: 1px solid black;
-    padding: 5px;
+.room-temp td,
+.active-rooms td {
+	border: 1px solid black;
+	padding: 5px;
 }
 
 .date-time {
 	background-color: orangered;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
-    padding: 20px;
+	padding: 20px;
 	width: fit-content;
+}
+
+.device-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px
+}
+
+.device-button {
+	width: 200px;
+	height: 150px;
+}
+
+.device-status {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 30px;
+}
+
+.device-name{
+	font-size: calc(2rem + 1.5vw);
 }
