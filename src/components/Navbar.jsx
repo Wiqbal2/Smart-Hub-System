@@ -58,8 +58,8 @@ function Navbar(props) {
             </NavDropdown>
             {/* GARDEN DROPDOWN */}
             <NavDropdown title="Garden" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Lighting</NavDropdown.Item>
-              <NavDropdown.Item href="#">Irrigation</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/lightsys">Lighting</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/irrigation">Irrigation</NavDropdown.Item>
             </NavDropdown>
             {/* HISTORY DROPDOWN */}
             <NavDropdown title="History" id="basic-nav-dropdown">

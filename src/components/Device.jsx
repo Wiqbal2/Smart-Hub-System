@@ -38,7 +38,6 @@ function Device() {
       </div>
       <div className="container mt-5">
       <div className="text-center">
-        <h1 className="select">Selected Device:{deviceName}</h1>
       </div>
       <div className="mt-4 text-center">
         <h2 className="font-weight-bold">Start Date & Time:</h2>
@@ -57,7 +56,7 @@ function Device() {
         />
       </div>
       <div className="text-center mt-5">
-        <button className="btn btn-primary btn-lg">SAVE</button>
+        <button className="save-btn-dev">SAVE</button>
       </div>
     </div>
     </div>
