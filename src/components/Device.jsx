@@ -67,8 +67,10 @@ function Device() {
   const isOn = deviceStates[deviceName];
 
   // Render temperature component if the device is a fridge
+  
   if (deviceName === 'Fridge') {
     return (
+      <div className = 'DeviceFridge-page'> 
       <div>
         {/* Device Status */}
         <div className='device-status'>
@@ -76,7 +78,7 @@ function Device() {
         </div>
 
         {/* Temperature component */}
-        <div className='temp-body'>
+        <div className='temp-bodyDevice'>
           <div className='app-container'>
             <div className='temperature-display-container'>
               <div className='temperature-display'>{temperature}°F</div>
@@ -99,11 +101,11 @@ function Device() {
           </div>
           <div className='mt-4 text-center'>
             <h2 className='font-weight-bold'>Start Date & Time:</h2>
-            <input type='datetime-local' className='datepicker1' style={{ width: '300px', height: '40px' }} />
+            <input type='datetime-local' className='datepicker1' style={{ width: '250px', height: '40px' }} />
           </div>
           <div className='mt-5 text-center'>
             <h3 className='font-weight-bold'>End Date & Time:</h3>
-            <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
+            <input type='datetime-local' className='datepicker2' style={{ width: '250px', height: '40px' }} />
           </div>
           <div className='text-center mt-5'>
             <button className='btn btn-primary btn-lg' onClick={saveSettings}>
@@ -113,12 +115,15 @@ function Device() {
           </div>
         </div>
       </div>
+      </div>
     );
+    
   }
+  
 
   // Render default device component
   return (
-    <div>
+    <div className='device-pageMultiple'>
       {/* Device Status */}
       <div className='device-status'>
         <h1 className='device-name'>Device: {deviceName}</h1>
@@ -134,7 +139,7 @@ function Device() {
       {/* Save button and other components */}
       <div className='container mt-5'>
         <div className='text-center'>
-          <h1 className='select'>Selected Device: {deviceName}</h1>
+         
         </div>
         <div className='mt-4 text-center'>
           <h2 className='font-weight-bold'>Start Date & Time:</h2>
@@ -153,6 +158,7 @@ function Device() {
       </div>
     </div>
   );
+  
 }
 
 export default Device;
