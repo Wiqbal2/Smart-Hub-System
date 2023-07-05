@@ -16,6 +16,8 @@ function Navbar(props) {
     setNewDeviceName('');
   };
 
+  //code for dynamic rooms 
+
   const [rooms, setRooms] = useState([]);
   const [newRoom, setNewRoom] = useState('');
 
