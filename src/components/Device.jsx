@@ -122,7 +122,7 @@ function Device({ onSaveDates }) {
 
   // Render default device component
   return (
-    <div>
+    <div className=' device-pageMultiple'>
       {/* Device Status */}
       <div className='device-status'>
         <h1 className='device-name'>Device: {deviceName}</h1>
