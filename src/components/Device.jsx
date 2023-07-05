@@ -1,9 +1,8 @@
-
-
 import '../styles.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { DeviceContext } from './DeviceContext';
 
 const initialDeviceStates = {
   'Coffee-Maker': false,
@@ -11,20 +10,20 @@ const initialDeviceStates = {
   Fridge: false,
 };
 
-function Device() {
-  const [deviceStates, setDeviceStates] = useState(initialDeviceStates);
+function Device({ onSaveDates }) {
   const [temperature, setTemperature] = useState(75); // Set default temperature to 75°F
   const [isTempSaved, setIsTempSaved] = useState(false); // Track if temperature is saved
   const [isDeviceSaved, setIsDeviceSaved] = useState(false); // Track if device is saved
   const [systemMessage, setSystemMessage] = useState('');
+  const { deviceStatuses, setDevicesStatuses } = useContext(DeviceContext);
 
   const { deviceName } = useParams();
 
   const handleToggle = () => {
-    setDeviceStates((prevStates) => ({
-      ...prevStates,
-      [deviceName]: !prevStates[deviceName],
-    }));
+    setDevicesStatuses({
+      ...deviceStatuses,
+      [deviceName]: !deviceStatuses[deviceName]
+    });
 
     setIsDeviceSaved(true); // Device is saved
     setIsTempSaved(false); // Reset temp saved status
@@ -64,14 +63,18 @@ function Device() {
     }, 3000);
   };
 
-  const isOn = deviceStates[deviceName];
+  const isOn = deviceStatuses[deviceName];
+
+  const saveOnClick = () => {
+    const startDateValue = document.querySelector('.datepicker1').value;
+    const endDateValue = document.querySelector('.datepicker2').value;
+    onSaveDates(startDateValue, endDateValue);
+  };
 
   // Render temperature component if the device is a fridge
-  
   if (deviceName === 'Fridge') {
     return (
-      <div className = 'DeviceFridge-page'> 
-      <div>
+      <div className='DeviceFridge-page'>
         {/* Device Status */}
         <div className='device-status'>
           <h1 className='device-name'>Device: {deviceName}</h1>
@@ -97,33 +100,29 @@ function Device() {
         {/* Save button and other components */}
         <div className='container mt-5'>
           <div className='text-center'>
-            <h1 className='select'>Selected Device: {deviceName}</h1>
           </div>
           <div className='mt-4 text-center'>
             <h2 className='font-weight-bold'>Start Date & Time:</h2>
-            <input type='datetime-local' className='datepicker1' style={{ width: '250px', height: '40px' }} />
+            <input type='datetime-local' className='datepicker1' style={{ width: '300px', height: '40px' }} />
           </div>
           <div className='mt-5 text-center'>
             <h3 className='font-weight-bold'>End Date & Time:</h3>
-            <input type='datetime-local' className='datepicker2' style={{ width: '250px', height: '40px' }} />
+            <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
           </div>
           <div className='text-center mt-5'>
-            <button className='btn btn-primary btn-lg' onClick={saveSettings}>
+            <button className='btn btn-primary btn-lg' onClick={() => { saveSettings(); saveOnClick(); }}>
               SAVE
             </button>
             {isTempSaved && <p className='temp-saved-message'>{systemMessage}</p>}
           </div>
         </div>
       </div>
-      </div>
     );
-    
   }
-  
 
   // Render default device component
   return (
-    <div className='device-pageMultiple'>
+    <div>
       {/* Device Status */}
       <div className='device-status'>
         <h1 className='device-name'>Device: {deviceName}</h1>
@@ -139,7 +138,6 @@ function Device() {
       {/* Save button and other components */}
       <div className='container mt-5'>
         <div className='text-center'>
-         
         </div>
         <div className='mt-4 text-center'>
           <h2 className='font-weight-bold'>Start Date & Time:</h2>
@@ -150,7 +148,7 @@ function Device() {
           <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
         </div>
         <div className='text-center mt-5'>
-          <button className='btn btn-primary btn-lg' onClick={saveDeviceSetting}>
+          <button className='btn btn-primary btn-lg'onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
             SAVE
           </button>
           {isDeviceSaved && <p className='device-saved-message'>{systemMessage}</p>}
@@ -158,8 +156,6 @@ function Device() {
       </div>
     </div>
   );
-  
 }
 
 export default Device;
-
