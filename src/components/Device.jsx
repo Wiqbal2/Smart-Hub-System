@@ -1,9 +1,8 @@
-
-
 import '../styles.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import { DeviceContext } from './DeviceContext';
 
 const initialDeviceStates = {
   'Coffee-Maker': false,
@@ -12,19 +11,20 @@ const initialDeviceStates = {
 };
 
 function Device() {
-  const [deviceStates, setDeviceStates] = useState(initialDeviceStates);
+  // const [deviceStates] = useState(initialDeviceStates);
   const [temperature, setTemperature] = useState(75); // Set default temperature to 75°F
   const [isTempSaved, setIsTempSaved] = useState(false); // Track if temperature is saved
   const [isDeviceSaved, setIsDeviceSaved] = useState(false); // Track if device is saved
   const [systemMessage, setSystemMessage] = useState('');
+  const { deviceStatuses, setDevicesStatuses } = useContext(DeviceContext);
 
   const { deviceName } = useParams();
 
   const handleToggle = () => {
-    setDeviceStates((prevStates) => ({
-      ...prevStates,
-      [deviceName]: !prevStates[deviceName],
-    }));
+    setDevicesStatuses({
+      ...deviceStatuses,
+      [deviceName]: !deviceStatuses[deviceName]
+    });
 
     setIsDeviceSaved(true); // Device is saved
     setIsTempSaved(false); // Reset temp saved status
@@ -64,7 +64,7 @@ function Device() {
     }, 3000);
   };
 
-  const isOn = deviceStates[deviceName];
+  const isOn = deviceStatuses[deviceName];
 
   // Render temperature component if the device is a fridge
   if (deviceName === 'Fridge') {

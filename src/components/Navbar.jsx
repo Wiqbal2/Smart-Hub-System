@@ -34,12 +34,12 @@ function Navbar(props) {
     <>
       <BootstrapNavbar className="navbar navbar-dark bg-dark" expand="lg">
         {/* HOME BUTTON */}
-        <BootstrapNavbar.Brand href="/">Home</BootstrapNavbar.Brand>
+        <BootstrapNavbar.Brand href="/" style={{ paddingLeft: "10px" }}>Home</BootstrapNavbar.Brand>
         <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {/* ROOMS DROPDOWN */}
-      
+
             <NavDropdown title="Rooms" id="basic-nav-dropdown">
               <NavDropdown.Item href="/" as={Link} to="/Room/Kitchen">
                 Kitchen
@@ -47,24 +47,23 @@ function Navbar(props) {
               <NavDropdown.Item href="/" as={Link} to="/Room/Living">
                 Living-room
               </NavDropdown.Item>
-              
-            {rooms.map((room, index) => (
-              <NavDropdown.Item key={index} href="/" as={Link} to={`/Room/${room}`} >{room}</NavDropdown.Item>
+
+              {rooms.map((room, index) => (
+                <NavDropdown.Item key={index} href="/" as={Link} to={`/Room/${room}`} >{room}</NavDropdown.Item>
               ))}
-      
-            <input
-              type="text"
-              value={newRoom}
-              onChange={handleRoomChange}
-            />
-            <button onClick={handleAddOption}>Add Room</button>
+
+              <input
+                type="text"
+                value={newRoom}
+                onChange={handleRoomChange}
+              />
+              <button onClick={handleAddOption}>Add Room</button>
 
             </NavDropdown>
 
-            
             {/* DEVICES DROPDOWN */}
             <NavDropdown title="Devices" id="basic-nav-dropdown">
-              {props.devices.map((device) => (
+              {props.deviceStatuses && Object.keys(props.deviceStatuses).map((device) => (
                 <NavDropdown.Item key={device} href="/" as={Link} to={`/Device/${device}`}>
                   {device}
                 </NavDropdown.Item>
@@ -81,11 +80,13 @@ function Navbar(props) {
                 </Button>
               </div>
             </NavDropdown>
+
             {/* GARDEN DROPDOWN */}
             <NavDropdown title="Garden" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/lightsys">Lighting</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/irrigation">Irrigation</NavDropdown.Item>
             </NavDropdown>
+
             {/* HISTORY DROPDOWN */}
             <NavDropdown title="History" id="basic-nav-dropdown">
               <NavDropdown.Item href="#">- Fridge 30 F<br />May 9th</NavDropdown.Item>
