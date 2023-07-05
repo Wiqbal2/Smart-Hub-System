@@ -1,14 +1,9 @@
 import React from 'react';
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import '../styles.css';
-import Temperature  from '../Utilities.js';
-import { useParams } from "react-router-dom";
+import Temperature  from './Utilities.js';
+import passParam from './paramWrapper';
 
-let name = "";
-
-function withParams(Component) {
-  return props => <Component {...props} params={useParams()} />;
-}
 
 class Room extends React.Component {
 
@@ -16,44 +11,42 @@ class Room extends React.Component {
     super(props);
     this.state = {temp: 75};
 
-    if(localStorage.getItem( 'temp' ) == null){
-      localStorage.setItem( 'temp', parseInt(this.state.temp,10));
+    if(localStorage.getItem( this.props.params.id ) == null){
+      localStorage.setItem( this.props.params.id, parseInt(this.state.temp,10));
     }
   }
 
-  
-
-
-
   handleTempChange = (temp) => {
     this.setState({temp:temp});
-    localStorage.setItem( 'temp', 75 );
+    localStorage.setItem( this.props.params.id, parseInt(temp,10) );
+    console.log(this.props.id);
+
 
   }
 
   render(){
-
-    console.log(name);
-
-  // Call the imported function
-  //const result = Temperature();
-
+    if(localStorage.getItem( this.props.params.id ) == null){
+      localStorage.setItem( this.props.params.id, 75);
+    }
+   
   return (
 
     <div>
+    
+      <div className='device-status'>  
+      <h1 className='device-name'>Room: {this.props.params.id}</h1>  
+      </div>
         <Navbar />
 
         <Temperature 
-         temp={parseInt(localStorage.getItem( 'temp' ),10)}
+         temp={parseInt(localStorage.getItem( this.props.roomName ),10)}
+         roomName={this.props.params.id}
          onTempChange={this.handleTempChange}
         /> 
 
-
-
-      {/* JSX content */}
     </div>
   );
 }
 }
 
-export default withParams(Room);
+export default passParam(Room)

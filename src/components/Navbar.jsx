@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function Navbar(props) {
   const [newDeviceName, setNewDeviceName] = useState('');
 
+
   const handleDeviceNameChange = (event) => {
     setNewDeviceName(event.target.value);
   };
@@ -38,16 +39,17 @@ function Navbar(props) {
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             {/* ROOMS DROPDOWN */}
+      
             <NavDropdown title="Rooms" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/" as={Link} to="/Room">
+              <NavDropdown.Item href="/" as={Link} to="/Room/Kitchen">
                 Kitchen
               </NavDropdown.Item>
-              <NavDropdown.Item href="/" as={Link} to="/Room">
+              <NavDropdown.Item href="/" as={Link} to="/Room/Living">
                 Living-room
               </NavDropdown.Item>
               
             {rooms.map((room, index) => (
-              <NavDropdown.Item key={index} href="/" as={Link} to="/Room" value={room}>{room}</NavDropdown.Item>
+              <NavDropdown.Item key={index} href="/" as={Link} to={`/Room/${room}`} >{room}</NavDropdown.Item>
               ))}
       
             <input
@@ -58,6 +60,8 @@ function Navbar(props) {
             <button onClick={handleAddOption}>Add Room</button>
 
             </NavDropdown>
+
+            
             {/* DEVICES DROPDOWN */}
             <NavDropdown title="Devices" id="basic-nav-dropdown">
               {props.devices.map((device) => (

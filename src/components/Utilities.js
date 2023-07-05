@@ -1,4 +1,5 @@
 import React, { useState, props } from 'react';
+import withRouter from './paramWrapper';
 
 
 class Temperature extends React.Component {
@@ -10,22 +11,22 @@ class Temperature extends React.Component {
 
 
     changeTemp = (temperature) => {
-        const temp = parseInt(localStorage.getItem( 'temp' ),10);
+        const temp = parseInt(localStorage.getItem( this.props.params.id ),10);
 
         if(temperature == 1){
             this.props.onTempChange(parseInt(temp,10)+1);
-            localStorage.setItem( 'temp', parseInt(temp,10)+1 );
+            localStorage.setItem( this.props.params.id, parseInt(temp,10)+1 );
 
         }
         else{
             this.props.onTempChange(parseInt(temp,10)-1);
-            localStorage.setItem( 'temp', parseInt(temp,10)-1 );
+            localStorage.setItem( this.props.params.id, parseInt(temp,10)-1 );
         }
     }
 
     render() {
         //const [temperatureValue, setTemperatureValue] = useState(70);
-        const displayTemp = parseInt(localStorage.getItem( 'temp' ),10);
+        const displayTemp = parseInt(localStorage.getItem( this.props.params.id ),10);
     return (
         <div class='temp-body'>
             <div class='app-container'>
@@ -42,4 +43,4 @@ class Temperature extends React.Component {
 }
 }
 
-export default Temperature;
+export default withRouter(Temperature);

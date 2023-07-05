@@ -21,7 +21,9 @@ function App() {
         <Navbar devices={devices} addDevice={addDevice} />
         <Routes>
           <Route path="/" element={<HomeScreen />} />
-          <Route path="/Room" element={<Room />} />
+          <Route path="/Room/:id"  element={<Room />} component={(props) => 
+          <Room value={props.match.params.id}/> 
+          }/>
           <Route path="/Device/:deviceName" element={<Device devices={devices} />} />
           <Route path="/irrigation" element={<IrrigationSys />} />
           <Route path="/lightsys" element={<LightSys />} />
