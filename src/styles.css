@@ -263,3 +263,53 @@ button:hover {
 	background-color: rgb(20, 106, 236);
 	color:black;
 }
+
+
+.device-container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 20px;
+  }
+  
+  .device-button {
+	width: 120px;
+	height: 80px;
+	font-size: 14px;
+	
+  }
+  .DeviceFridge-page{
+	background-color: skyblue ;
+  }
+  
+  
+  .temp-bodyDevice{
+	font-family:Arial, Helvetica, sans-serif;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 50vh;
+  }
+  
+
+  
+  .device-pageMultiple{
+	background-color: salmon;
+  }
+  
+  .temp-saved-message,
+  .device-saved-message {
+	position: fixed;
+	top: 100px; /* Adjust the value based on your navbar height */
+	left: 0;
+	padding: 10px;
+	
+	color: black;
+	font-weight: bold;
+	font-size: 25;
+
+  }
+  

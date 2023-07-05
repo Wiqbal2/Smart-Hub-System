@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { DeviceContext } from './DeviceContext';
 
 function HomeScreen() {
     const [dateTime, setDateTime] = useState(new Date());
+    const { deviceStatuses } = useContext(DeviceContext);
+    const activeDevices = Object.keys(deviceStatuses).filter(device => deviceStatuses[device]);
 
     // Function to update date and time
     const updateTime = () => {
@@ -17,9 +20,9 @@ function HomeScreen() {
     return (
         <div className="home-screen">
             <h1 className="test">Home Screen</h1>
-            <img 
-                src="/temp_pic.jpg" 
-                alt="Home System imagery for home screen" 
+            <img
+                src="/temp_pic.jpg"
+                alt="Home System imagery for home screen"
                 className="home-image"
             />
             <div className="dashboard">
@@ -39,18 +42,17 @@ function HomeScreen() {
                     <p>{dateTime.toLocaleDateString()}</p>
                     <p>{dateTime.toLocaleTimeString()}</p>
                 </div>
-                <div className="active-rooms">
+                <div className="active-devices">
                     <table className="table table-hover">
                         <tbody>
                             <tr>
-                                <td>Active Rooms</td>
+                                <td>Active Devices</td>
                             </tr>
-                            <tr>
-                                <td>Living Room</td>
-                            </tr>
-                            <tr>
-                                <td>Kitchen</td>
-                            </tr>
+                            {activeDevices.map(device => (
+                                <tr key={device}>
+                                    <td>{device}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
