@@ -95,7 +95,6 @@ function Device() {
         {/* Save button and other components */}
         <div className='container mt-5'>
           <div className='text-center'>
-            <h1 className='select'>Selected Device: {deviceName}</h1>
           </div>
           <div className='mt-4 text-center'>
             <h2 className='font-weight-bold'>Start Date & Time:</h2>
@@ -134,7 +133,6 @@ function Device() {
       {/* Save button and other components */}
       <div className='container mt-5'>
         <div className='text-center'>
-          <h1 className='select'>Selected Device: {deviceName}</h1>
         </div>
         <div className='mt-4 text-center'>
           <h2 className='font-weight-bold'>Start Date & Time:</h2>
