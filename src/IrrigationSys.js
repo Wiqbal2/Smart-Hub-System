@@ -1,32 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'; // Import the CSS file
 
 
-const IrrigationSys = () => {
-//saves the dates fromm datepicker
-  const [savedDates, setSavedDates] = useState([]);
+const IrrigationSys = ({ onSaveDates }) => {
 
-  const handleSaveButtonClick = () => {
+  const saveOnClick = () => {
     const startDateValue = document.querySelector('.datepicker1').value;
     const endDateValue = document.querySelector('.datepicker2').value;
+    onSaveDates(startDateValue, endDateValue);
+  };
 
-    //initialize vars from d1 and d2
-    const startDate = new Date(startDateValue);
-    const endDate = new Date(endDateValue);
-    const startTime = startDate.toLocaleTimeString();
-    const endTime = endDate.toLocaleTimeString();
-
-    //prints dates to console log
-    console.log('Start Time:', startTime);
-    console.log('End Time:', endTime);
-
-    //making dates object
-    const newDate = { startDate: startDateValue, endDate: endDateValue };
-
-    //adds dates to array
-    setSavedDates([...savedDates, newDate]);
-   };
 //actual irrigation system layout
   return (
     <div className="irrigation-body">
@@ -51,7 +35,7 @@ const IrrigationSys = () => {
         />
       </div>
       <div className="text-center mt-5">
-      <button className="save-btnir" onClick={() => { handleSaveButtonClick() }}>SAVE</button>
+      <button className="save-btnir" onClick={() => {saveOnClick()}}>SAVE</button>
       </div>
     </div>
   );

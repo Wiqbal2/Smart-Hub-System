@@ -156,7 +156,7 @@ button:hover {
 }
 
 .irrigation-body {
-	background-color: rgb(72, 217, 240);
+	background-color: white;
 	margin-top: -50px;
 }
 
@@ -223,7 +223,7 @@ button:hover {
 
 
 .light-body {
-	background-color: rgb(118, 219, 137);
+	background-color: white;
 	margin-top: -50px;
 }
 
@@ -297,7 +297,7 @@ button:hover {
 }
 
 .DeviceFridge-page {
-	background-color: skyblue;
+	background-color:white;
 }
 
 
@@ -313,7 +313,7 @@ button:hover {
 }
 
 .device-pageMultiple {
-	background-color: salmon;
+	background-color: white;
 }
 
 .temp-saved-message, .device-saved-message {

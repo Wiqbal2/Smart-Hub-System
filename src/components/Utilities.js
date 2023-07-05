@@ -31,7 +31,7 @@ class Temperature extends React.Component {
         <div class='temp-body'>
             <div class='app-container'>
                 <div class='temperature-display-container'>
-                    <div className='temperature-display'>{displayTemp}Â°F</div>
+                    <div className='temperature-display'>{displayTemp}°F</div>
                 </div>
                 <div class='button-div'>
                     <button onClick={() => this.changeTemp(1)}><b>+</b></button>
