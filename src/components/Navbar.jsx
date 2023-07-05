@@ -65,11 +65,30 @@ function Navbar(props) {
 
             {/* DEVICES DROPDOWN */}
             <NavDropdown title="Devices" id="basic-nav-dropdown">
-              {props.deviceStatuses && Object.keys(props.deviceStatuses).map((device) => (
-                <NavDropdown.Item key={device} href="/" as={Link} to={`/Device/${device}`}>
-                  {device}
-                </NavDropdown.Item>
-              ))}
+                    {props.deviceStatuses &&
+                      (() => {
+                        const deviceStatuses = props.deviceStatuses;
+                        const dropdownItems = [];
+
+                        for (let device in deviceStatuses) {
+                          // method ensures that only properties directly defined on the deviceStatuses object are considered for the iteration. 
+                          if (deviceStatuses.hasOwnProperty(device)) {
+                            dropdownItems.push(
+                              <NavDropdown.Item
+                                key={device}
+                                href="/"
+                                as={Link}
+                                to={`/Device/${device}`}
+                              >
+                                {device}
+                              </NavDropdown.Item>
+                            );
+                          }
+                        }
+
+                        return dropdownItems;
+                      })()}
+
               <div>
                 <input
                   type="text"
