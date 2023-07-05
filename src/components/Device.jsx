@@ -1,8 +1,10 @@
 import '../styles.css';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { DeviceContext } from './DeviceContext';
+
+
 
 const initialDeviceStates = {
   'Coffee-Maker': false,
@@ -18,6 +20,18 @@ function Device({ onSaveDates }) {
   const { deviceStatuses, setDevicesStatuses } = useContext(DeviceContext);
 
   const { deviceName } = useParams();
+  //new changes dont know if this actually works, gets reset when the user clicks on home
+    useEffect(() => {
+      const storedDeviceStatuses = JSON.parse(localStorage.getItem('deviceStatuses'));
+      if (storedDeviceStatuses) {
+        setDevicesStatuses(storedDeviceStatuses);
+      }
+    }, []);
+
+    // Save device statuses to local storage whenever they change
+    useEffect(() => {
+      localStorage.setItem('deviceStatuses', JSON.stringify(deviceStatuses));
+    }, [deviceStatuses]);
 
   const handleToggle = () => {
     setDevicesStatuses({
