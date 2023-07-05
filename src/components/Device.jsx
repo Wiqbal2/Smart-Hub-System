@@ -10,7 +10,7 @@ const initialDeviceStates = {
   Fridge: false,
 };
 
-function Device() {
+function Device({ onSaveDates }) {
   // const [deviceStates] = useState(initialDeviceStates);
   const [temperature, setTemperature] = useState(75); // Set default temperature to 75°F
   const [isTempSaved, setIsTempSaved] = useState(false); // Track if temperature is saved
@@ -66,6 +66,12 @@ function Device() {
 
   const isOn = deviceStatuses[deviceName];
 
+  const saveOnClick = () => {
+    const startDateValue = document.querySelector('.datepicker1').value;
+    const endDateValue = document.querySelector('.datepicker2').value;
+    onSaveDates(startDateValue, endDateValue);
+  };
+
   // Render temperature component if the device is a fridge
   if (deviceName === 'Fridge') {
     return (
@@ -105,7 +111,7 @@ function Device() {
             <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
           </div>
           <div className='text-center mt-5'>
-            <button className='btn btn-primary btn-lg' onClick={saveSettings}>
+            <button className='btn btn-primary btn-lg' onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
               SAVE
             </button>
             {isTempSaved && <p className='temp-saved-message'>{systemMessage}</p>}
@@ -143,7 +149,7 @@ function Device() {
           <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
         </div>
         <div className='text-center mt-5'>
-          <button className='btn btn-primary btn-lg' onClick={saveDeviceSetting}>
+          <button className='btn btn-primary btn-lg'onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
             SAVE
           </button>
           {isDeviceSaved && <p className='device-saved-message'>{systemMessage}</p>}

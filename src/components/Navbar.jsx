@@ -89,8 +89,11 @@ function Navbar(props) {
 
             {/* HISTORY DROPDOWN */}
             <NavDropdown title="History" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">- Fridge 30 F<br />May 9th</NavDropdown.Item>
-              <NavDropdown.Item href="#">- Irrigation ON <br />May 9th</NavDropdown.Item>
+            {props.selectedDates.map((date, index) => (
+                <NavDropdown.Item key={index} href="#">
+                  - {date.startDate} to {date.endDate}
+                </NavDropdown.Item>
+              ))}
             </NavDropdown>
           </Nav>
         </BootstrapNavbar.Collapse>
