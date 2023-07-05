@@ -15,7 +15,7 @@
 	width: 550px;
 	position: absolute;
 	top: 15%;
-	left: 30%;
+	left: 33%;
 }
 
 .test {
@@ -25,7 +25,7 @@
 
 
 .temp-body {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -38,7 +38,8 @@
 .app-container {
 	height: 400px;
 	width: 300px;
-	background: #008080;;
+	background: #008080;
+	;
 	border-radius: 80px;
 }
 
@@ -105,20 +106,20 @@ button:hover {
 
 .room-temp,
 .date-time,
-.active-rooms {
+.active-devices {
 	width: 30%;
 	text-align: center;
 }
 
 .room-temp table,
-.active-rooms table {
+.active-devices table {
 	width: 100%;
 	height: auto;
 	border-collapse: collapse;
 }
 
 .room-temp td,
-.active-rooms td {
+.active-devices td {
 	border: 1px solid black;
 	padding: 5px;
 }
@@ -150,118 +151,134 @@ button:hover {
 	padding: 30px;
 }
 
-.device-name{
+.device-name {
 	font-size: calc(2rem + 1.5vw);
 }
-.irrigation-body{
+
+.irrigation-body {
 	background-color: rgb(72, 217, 240);
 	margin-top: -50px;
 }
-.top-ir{
+
+.top-ir {
 	font-weight: bold;
-    font-size: 70px;
-    text-align:center;
-    color: black;
-    margin-top: 50px;
-    margin-bottom: 100px;
+	font-size: 70px;
+	text-align: center;
+	color: black;
+	margin-top: 50px;
+	margin-bottom: 100px;
 }
-.title-ir{
+
+.title-ir {
 	font-weight: bold;
-    font-size: 60px;
-    text-align:center;
-    color: blue;
+	font-size: 60px;
+	text-align: center;
+	color: blue;
 	margin-top: -50px;
-    margin-bottom: 100px;
+	margin-bottom: 100px;
 }
-.start-ir{
-    text-align: center;
+
+.start-ir {
+	text-align: center;
 	font-weight: bold;
-    color:blue;
-    font-size: 40px;
+	color: blue;
+	font-size: 40px;
 	margin-top: -50px;
 }
-.end-ir{
-    text-align: center;
+
+.end-ir {
+	text-align: center;
 	font-weight: bold;
-    color:blue;
-    font-size: 40px;
-	
+	color: blue;
+	font-size: 40px;
+
 }
-.datepicker1{
-    margin-top: 50px;
+
+.datepicker1 {
+	margin-top: 50px;
 	margin-left: 5px;
-    font-size: 25px;;
+	font-size: 25px;
+	;
 }
-.datepicker2{
-    margin-top: 50px;
+
+.datepicker2 {
+	margin-top: 50px;
 	margin-left: 5px;
-    font-size: 25px;
+	font-size: 25px;
 }
-.save-btnir{
-    font-size: 20px;
+
+.save-btnir {
+	font-size: 20px;
 	margin-top: 20px;
 	margin-bottom: 50px;
-    border-radius: 10px;
-    background-color: blue;
-    color: white;  
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
 }
-.save-btnir:hover{
+
+.save-btnir:hover {
 	background-color: rgb(20, 106, 236);
-	color:black;
+	color: black;
 }
 
 
-.light-body{
+.light-body {
 	background-color: rgb(118, 219, 137);
 	margin-top: -50px;
 }
-.top-li{
+
+.top-li {
 	font-weight: bold;
-    font-size: 70px;
-    text-align:center;
-    color: black;
-    margin-top: 50px;
-    margin-bottom: 100px;
-}
-.title-li{
-	font-weight: bold;
-    font-size: 60px;
-    text-align:center;
-    color: blue;
-	margin-top: -50px;
-    margin-bottom: 100px;
-}
-.font-weight-bold-li{
-    text-align: center;
-	font-weight: bold;
-    color:blue;
-    font-size: 40px;
-}
-.save-btn-li{
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: blue;
-    color: white;
-	margin-bottom: 20px;
-    
-}
-.save-btn-li:hover{
-	background-color: rgb(20, 106, 236);
-	color:black;
+	font-size: 70px;
+	text-align: center;
+	color: black;
+	margin-top: 50px;
+	margin-bottom: 100px;
 }
 
-.save-btn-dev{
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: blue;
-    color: white;
+.title-li {
+	font-weight: bold;
+	font-size: 60px;
+	text-align: center;
+	color: blue;
+	margin-top: -50px;
+	margin-bottom: 100px;
+}
+
+.font-weight-bold-li {
+	text-align: center;
+	font-weight: bold;
+	color: blue;
+	font-size: 40px;
+}
+
+.save-btn-li {
+	font-size: 20px;
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
+	margin-bottom: 20px;
+
+}
+
+.save-btn-li:hover {
+	background-color: rgb(20, 106, 236);
+	color: black;
+}
+
+.save-btn-dev {
+	font-size: 20px;
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
 	margin-bottom: 20px;
 	margin-top: -100px;
-    
+
 }
-.save-btn-dev:hover{
+
+.save-btn-dev:hover {
 	background-color: rgb(20, 106, 236);
-	color:black;
+	color: black;
 }
 
 
@@ -270,21 +287,22 @@ button:hover {
 	justify-content: center;
 	align-items: flex-start;
 	margin-top: 20px;
-  }
-  
-  .device-button {
+}
+
+.device-button {
 	width: 120px;
 	height: 80px;
 	font-size: 14px;
-	
-  }
-  .DeviceFridge-page{
-	background-color: skyblue ;
-  }
-  
-  
-  .temp-bodyDevice{
-	font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.DeviceFridge-page {
+	background-color: skyblue;
+}
+
+
+.temp-bodyDevice {
+	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -292,24 +310,21 @@ button:hover {
 	align-items: center;
 	text-align: center;
 	min-height: 50vh;
-  }
-  
+}
 
-  
-  .device-pageMultiple{
+.device-pageMultiple {
 	background-color: salmon;
-  }
-  
-  .temp-saved-message,
-  .device-saved-message {
+}
+
+.temp-saved-message, .device-saved-message {
 	position: fixed;
-	top: 100px; /* Adjust the value based on your navbar height */
+	top: 100px;
+	/* Adjust the value based on your navbar height */
 	left: 0;
 	padding: 10px;
-	
+
 	color: black;
 	font-weight: bold;
 	font-size: 25;
 
-  }
-  
+}
