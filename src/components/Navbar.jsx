@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState } from 'react';
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -17,6 +13,20 @@ function Navbar(props) {
     //event.preventDefault();
     props.addDevice(newDeviceName);
     setNewDeviceName('');
+  };
+
+  const [rooms, setRooms] = useState([]);
+  const [newRoom, setNewRoom] = useState('');
+
+  const handleRoomChange = (e) => {
+    setNewRoom(e.target.value);
+  };
+
+  const handleAddOption = () => {
+    if (newRoom) {
+      setRooms([...rooms, newRoom]);
+      setNewRoom('');
+    }
   };
 
   return (
@@ -35,7 +45,18 @@ function Navbar(props) {
               <NavDropdown.Item href="/" as={Link} to="/Room">
                 Living-room
               </NavDropdown.Item>
-              <NavDropdown.Item href="#">+ add room</NavDropdown.Item>
+              
+            {rooms.map((room, index) => (
+              <NavDropdown.Item key={index} href="/" as={Link} to="/Room" value={room}>{room}</NavDropdown.Item>
+              ))}
+      
+            <input
+              type="text"
+              value={newRoom}
+              onChange={handleRoomChange}
+            />
+            <button onClick={handleAddOption}>Add Room</button>
+
             </NavDropdown>
             {/* DEVICES DROPDOWN */}
             <NavDropdown title="Devices" id="basic-nav-dropdown">
