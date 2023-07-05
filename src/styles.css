@@ -153,3 +153,113 @@ button:hover {
 .device-name{
 	font-size: calc(2rem + 1.5vw);
 }
+.irrigation-body{
+	background-color: rgb(72, 217, 240);
+	margin-top: -50px;
+}
+.top-ir{
+	font-weight: bold;
+    font-size: 70px;
+    text-align:center;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.title-ir{
+	font-weight: bold;
+    font-size: 60px;
+    text-align:center;
+    color: blue;
+	margin-top: -50px;
+    margin-bottom: 100px;
+}
+.start-ir{
+    text-align: center;
+	font-weight: bold;
+    color:blue;
+    font-size: 40px;
+	margin-top: -50px;
+}
+.end-ir{
+    text-align: center;
+	font-weight: bold;
+    color:blue;
+    font-size: 40px;
+	
+}
+.datepicker1{
+    margin-top: 50px;
+	margin-left: 5px;
+    font-size: 25px;;
+}
+.datepicker2{
+    margin-top: 50px;
+	margin-left: 5px;
+    font-size: 25px;
+}
+.save-btnir{
+    font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;  
+}
+.save-btnir:hover{
+	background-color: rgb(20, 106, 236);
+	color:black;
+}
+
+
+.light-body{
+	background-color: rgb(118, 219, 137);
+	margin-top: -50px;
+}
+.top-li{
+	font-weight: bold;
+    font-size: 70px;
+    text-align:center;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.title-li{
+	font-weight: bold;
+    font-size: 60px;
+    text-align:center;
+    color: blue;
+	margin-top: -50px;
+    margin-bottom: 100px;
+}
+.font-weight-bold-li{
+    text-align: center;
+	font-weight: bold;
+    color:blue;
+    font-size: 40px;
+}
+.save-btn-li{
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+	margin-bottom: 20px;
+    
+}
+.save-btn-li:hover{
+	background-color: rgb(20, 106, 236);
+	color:black;
+}
+
+.save-btn-dev{
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+	margin-bottom: 20px;
+	margin-top: -100px;
+    
+}
+.save-btn-dev:hover{
+	background-color: rgb(20, 106, 236);
+	color:black;
+}
