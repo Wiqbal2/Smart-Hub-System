@@ -3,12 +3,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'; // Import the CSS file
 
 const LightSys = ({ onSaveDates }) => {
-//saves the dates fromm datepicker
   const saveOnClick = () => {
-    const startDateValue = document.querySelector('.datepicker1').value;
-    const endDateValue = document.querySelector('.datepicker2').value;
-    onSaveDates(startDateValue, endDateValue);
+    const lightStart = document.querySelector('.datepicker1').value;
+    const lightEnd = document.querySelector('.datepicker2').value;
+    onSaveDates(lightStart, lightEnd);
+
+    //local storage saving
+    localStorage.setItem('lightStartDate', lightStart);
+    localStorage.setItem('lightEndDate', lightEnd);
   };
+  //restores values from local storage on component
+  React.useEffect(() => {
+    const storedlightStartDate = localStorage.getItem('lightStartDate');
+    const storedlightEndDate = localStorage.getItem('lightEndDate');
+
+    if (storedlightStartDate && storedlightEndDate) {
+      document.querySelector('.datepicker1').value = storedlightStartDate;
+      document.querySelector('.datepicker2').value = storedlightEndDate;
+    }
+  }, []);
 //actual light system layout
   return (
     <div className="light-body">
@@ -33,7 +46,7 @@ const LightSys = ({ onSaveDates }) => {
         />
       </div>
       <div className="text-center mt-5">
-        <button className="save-btn-li" onClick={() => {saveOnClick()}}>SAVE</button>
+        <button className="save-btn-li" onClick={() => {saveOnClick()}}>Add to History</button>
       </div>
     </div>
   );

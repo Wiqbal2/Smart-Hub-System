@@ -80,10 +80,24 @@ function Device({ onSaveDates }) {
   const isOn = deviceStatuses[deviceName];
 
   const saveOnClick = () => {
-    const startDateValue = document.querySelector('.datepicker1').value;
-    const endDateValue = document.querySelector('.datepicker2').value;
-    onSaveDates(startDateValue, endDateValue);
+    const devStart = document.querySelector('.datepicker1').value;
+    const devEnd = document.querySelector('.datepicker2').value;
+    onSaveDates(devStart, devEnd);
+
+    //local storage saving
+    localStorage.setItem('devStartDate', devStart);
+    localStorage.setItem('devEndDate', devEnd);
   };
+  //restores values from local storage on component
+  React.useEffect(() => {
+    const storeddevStartDate = localStorage.getItem('devStartDate');
+    const storeddevEndDate = localStorage.getItem('devEndDate');
+
+    if (storeddevStartDate && storeddevEndDate) {
+      document.querySelector('.datepicker1').value = storeddevStartDate;
+      document.querySelector('.datepicker2').value = storeddevEndDate;
+    }
+  }, []);
 
   // Render temperature component if the device is a fridge
   if (deviceName === 'Fridge') {
@@ -125,7 +139,7 @@ function Device({ onSaveDates }) {
           </div>
           <div className='text-center mt-5'>
             <button className='btn btn-primary btn-lg' onClick={() => { saveSettings(); saveOnClick(); }}>
-              SAVE
+            SAVE
             </button>
             {isTempSaved && <p className='temp-saved-message'>{systemMessage}</p>}
           </div>
@@ -163,7 +177,7 @@ function Device({ onSaveDates }) {
         </div>
         <div className='text-center mt-5'>
           <button className='btn btn-primary btn-lg'onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
-            SAVE
+          SAVE
           </button>
           {isDeviceSaved && <p className='device-saved-message'>{systemMessage}</p>}
         </div>

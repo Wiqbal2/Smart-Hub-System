@@ -2,13 +2,28 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles.css'; // Import the CSS file
 
-const RoomSchedule = ({ onSaveDates }) => {
-    //saves the dates fromm datepicker
-  const saveOnClick = () => {
-    const startDateValue = document.querySelector('.datepicker1').value;
-    const endDateValue = document.querySelector('.datepicker2').value;
-    onSaveDates(startDateValue, endDateValue);
-  };
+const RoomSchedule = () => {
+    const saveOnClick = () => {
+        const roomStart = document.querySelector('.datepicker1').value;
+        const roomEnd = document.querySelector('.datepicker2').value;
+        //onSaveDates(roomStart, roomEnd); DOES NOT LIKE THIS ARRAY will break code
+    
+        //local storage saving
+        localStorage.setItem('roomStartDate', roomStart);
+        localStorage.setItem('roomEndDate', roomEnd);
+      };
+    
+      //restores values from local storage on component
+      React.useEffect(() => {
+        const storedroomStartDate = localStorage.getItem('roomStartDate');
+        const storedroomEndDate = localStorage.getItem('roomEndDate');
+    
+        if (storedroomStartDate && storedroomEndDate) {
+          document.querySelector('.datepicker1').value = storedroomStartDate;
+          document.querySelector('.datepicker2').value = storedroomEndDate;
+        }
+      }, []);
+    
     return(
         <div>
             <div className="mt-4 text-center">
@@ -28,7 +43,7 @@ const RoomSchedule = ({ onSaveDates }) => {
                 />
             </div>
             <div className="text-center mt-5">
-                <button className="save-btnro">SAVE</button>
+                <button className="save-btnro"onClick={() => {saveOnClick()}}>SAVE</button>
             </div>
         </div>
     );

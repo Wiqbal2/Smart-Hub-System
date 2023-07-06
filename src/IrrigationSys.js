@@ -5,11 +5,25 @@ import './styles.css'; // Import the CSS file
 
 const IrrigationSys = ({ onSaveDates }) => {
   const saveOnClick = () => {
-    const startDateValue = document.querySelector('.datepicker1').value;
-    const endDateValue = document.querySelector('.datepicker2').value;
-    onSaveDates(startDateValue, endDateValue);
-    
+    const irrStart = document.querySelector('.datepicker1').value;
+    const irrEnd = document.querySelector('.datepicker2').value;
+    onSaveDates(irrStart, irrEnd);
+
+    //local storage saving
+    localStorage.setItem('startIrrDate', irrStart);
+    localStorage.setItem('endIrrDate', irrEnd);
   };
+
+  //restores values from local storage on component
+  React.useEffect(() => {
+    const storedstartIrrDate = localStorage.getItem('startIrrDate');
+    const storedendIrrDate = localStorage.getItem('endIrrDate');
+
+    if (storedstartIrrDate && storedendIrrDate) {
+      document.querySelector('.datepicker1').value = storedstartIrrDate;
+      document.querySelector('.datepicker2').value = storedendIrrDate;
+    }
+  }, []);
 
 //actual irrigation system layout
   return (
@@ -35,7 +49,7 @@ const IrrigationSys = ({ onSaveDates }) => {
         />
       </div>
       <div className="text-center mt-5">
-      <button className="save-btnir" onClick={() => {saveOnClick()}}>SAVE</button>
+      <button className="save-btnir" onClick={() => {saveOnClick()}}>Add to History</button>
       </div>
     </div>
   );
