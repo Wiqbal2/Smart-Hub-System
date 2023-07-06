@@ -38,22 +38,21 @@
 	margin-top: 10px;
 }
 
-.app-container {
-	height: 400px;
+.temp-container {
+	height: 350px;
 	width: 300px;
 	background: #008080;
-	;
 	border-radius: 80px;
 }
 
-.temperature-display-container {
+.temperature-display {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 55%;
 }
 
-.temperature-display {
+.actual-temp {
 	display: flex;
 	border-radius: 30%;
 	color: whitesmoke;
@@ -63,7 +62,7 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 70px;
-	border: 3px black solid;
+	
 }
 
 button {
@@ -79,8 +78,6 @@ button {
 button:hover {
 	background: lightcyan;
 }
-
-
 
 .button-div {
 	display: flex;

@@ -29,9 +29,9 @@ class Temperature extends React.Component {
         const displayTemp = parseInt(localStorage.getItem( this.props.params.id ),10);
     return (
         <div class='temp-body'>
-            <div class='app-container'>
-                <div class='temperature-display-container'>
-                    <div className='temperature-display'>{displayTemp}°F</div>
+            <div class='temp-container'>
+                <div class='temperature-display'>
+                    <div className='actual-temp'>{displayTemp}°F</div>
                 </div>
                 <div class='button-div'>
                     <button onClick={() => this.changeTemp(1)}><b>+</b></button>
