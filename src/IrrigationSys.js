@@ -4,11 +4,11 @@ import './styles.css'; // Import the CSS file
 
 
 const IrrigationSys = ({ onSaveDates }) => {
-
   const saveOnClick = () => {
     const startDateValue = document.querySelector('.datepicker1').value;
     const endDateValue = document.querySelector('.datepicker2').value;
     onSaveDates(startDateValue, endDateValue);
+    
   };
 
 //actual irrigation system layout

@@ -7,7 +7,7 @@ import Device from './components/Device';
 import IrrigationSys from './IrrigationSys';
 import LightSys from './LightSys';
 import { DeviceContext } from './components/DeviceContext';
-import { Form } from 'react-bootstrap';
+
 
 function App() {
   const [deviceStatuses, setDevicesStatuses] = useState({

@@ -4,7 +4,6 @@ import './styles.css'; // Import the CSS file
 
 const LightSys = ({ onSaveDates }) => {
 //saves the dates fromm datepicker
-
   const saveOnClick = () => {
     const startDateValue = document.querySelector('.datepicker1').value;
     const endDateValue = document.querySelector('.datepicker2').value;

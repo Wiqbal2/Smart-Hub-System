@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navbar as BootstrapNavbar, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { Navbar as  Navbar } from 'react-bootstrap';
 import '../styles.css';
 import Temperature  from './Utilities.js';
 import passParam from './paramWrapper';
-
+import RoomSchedule from './RoomSchedule.jsx';
 
 class Room extends React.Component {
 
@@ -20,9 +20,8 @@ class Room extends React.Component {
     this.setState({temp:temp});
     localStorage.setItem( this.props.params.id, parseInt(temp,10) );
     console.log(this.props.id);
-
-
   }
+
 
   render(){
     if(localStorage.getItem( this.props.params.id ) == null){
@@ -32,7 +31,6 @@ class Room extends React.Component {
   return (
 
     <div>
-    
       <div className='device-status'>  
       <h1 className='device-name'>Room: {this.props.params.id}</h1>  
       </div>
@@ -44,6 +42,7 @@ class Room extends React.Component {
          onTempChange={this.handleTempChange}
         /> 
 
+        <RoomSchedule />
     </div>
   );
 }

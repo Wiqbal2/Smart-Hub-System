@@ -1,4 +1,4 @@
-import React, { useState, props } from 'react';
+import React from 'react';
 import withRouter from './paramWrapper';
 
 
