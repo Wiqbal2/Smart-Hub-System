@@ -1,12 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles.css'; // Import the CSS file
+import passParam from './paramWrapper';
 
-const RoomSchedule = () => {
+const RoomSchedule = ({onSaveDates}) => {      
+
     const saveOnClick = () => {
+
         const roomStart = document.querySelector('.datepicker1').value;
         const roomEnd = document.querySelector('.datepicker2').value;
-        //onSaveDates(roomStart, roomEnd); DOES NOT LIKE THIS ARRAY will break code
+        onSaveDates(roomStart, roomEnd);
     
         //local storage saving
         localStorage.setItem('roomStartDate', roomStart);
@@ -48,4 +51,4 @@ const RoomSchedule = () => {
         </div>
     );
 }
-export default RoomSchedule;
+export default passParam(RoomSchedule);

@@ -7,6 +7,8 @@ import Device from './components/Device';
 import IrrigationSys from './IrrigationSys';
 import LightSys from './LightSys';
 import { DeviceContext } from './components/DeviceContext';
+import RoomSchedule from './components/RoomSchedule';
+
 
 
 function App() {
@@ -55,7 +57,8 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/Room/:id" element={<Room />} />
+            <Route path="/Room/:id" element={<><Room/><RoomSchedule 
+            onSaveDates={handleSaveDates}/></>} />            
             <Route path="/Device/:deviceName" element={<Device
               onSaveDates={handleSaveDates} />} />
             <Route

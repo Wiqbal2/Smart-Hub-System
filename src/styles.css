@@ -28,11 +28,9 @@
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	/*min-height: 100vh;*/
 }
 .start-ro{
 	margin-top: 10px;
@@ -66,13 +64,11 @@
 }
 
 button {
-	border-radius: 50px;
 	height: 60px;
 	width: 80px;
 	font-size: 80px;
 	color: grey;
 	background: blanchedalmond;
-	border: 7px rgb(120, 42, 165);
 }
 
 button:hover {
@@ -84,12 +80,6 @@ button:hover {
 	justify-content: space-evenly;
 	align-items: center;
 }
-
-.neutral {
-	background: rgb(184, 184, 184);
-}
-
-
 
 .home-screen {
 	display: flex;
