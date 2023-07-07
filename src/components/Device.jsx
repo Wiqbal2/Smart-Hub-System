@@ -20,18 +20,7 @@ function Device({ onSaveDates }) {
   const { deviceStatuses, setDevicesStatuses } = useContext(DeviceContext);
 
   const { deviceName } = useParams();
-  //new changes dont know if this actually works, gets reset when the user clicks on home
-    useEffect(() => {
-      const storedDeviceStatuses = JSON.parse(localStorage.getItem('deviceStatuses'));
-      if (storedDeviceStatuses) {
-        setDevicesStatuses(storedDeviceStatuses);
-      }
-    }, []);
-
-    // Save device statuses to local storage whenever they change
-    useEffect(() => {
-      localStorage.setItem('deviceStatuses', JSON.stringify(deviceStatuses));
-    }, [deviceStatuses]);
+    
 
   const handleToggle = () => {
     setDevicesStatuses({
