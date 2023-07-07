@@ -5,7 +5,9 @@ function HomeScreen() {
     const [dateTime, setDateTime] = useState(new Date());
     const [rooms, setRooms] = useState([]);
     const [roomTemps, setRoomTemps] = useState({});
+    // Using context to get status of devices
     const { deviceStatuses } = useContext(DeviceContext);
+    // Filter only active devices
     const activeDevices = Object.keys(deviceStatuses).filter(device => deviceStatuses[device]);
     const [weatherData, setWeatherData] = useState(null);
 
@@ -14,32 +16,30 @@ function HomeScreen() {
         setDateTime(new Date());
     };
 
-    // Function to update rooms and room temperatures
     // Function to update room names and temperatures
     const updateRoomData = () => {
-        const allKeys = Object.keys(localStorage);
-        const roomKeys = allKeys.filter(key => key !== "deviceStatuses" && key !== "roomStartDate" && key !== "roomEndDate");
+        // Extract room keys from local storage, excluding some keys
+        const roomKeys = Object.keys(localStorage).filter(key => !["deviceStatuses", "roomStartDate", "roomEndDate"].includes(key));
 
-        let newRoomNames = [];
-        let newRoomTemps = {};
-
-        roomKeys.forEach(key => {
-            newRoomNames.push(key);
-            newRoomTemps[key] = localStorage.getItem(key);
-        });
+        // Create new room names and temperatures by iterating over keys
+        const newRoomNames = roomKeys;
+        const newRoomTemps = roomKeys.reduce((result, key) => {
+            result[key] = localStorage.getItem(key);
+            return result;
+        }, {});
 
         setRooms(newRoomNames);
         setRoomTemps(newRoomTemps);
     };
 
-
     // Set interval to update time every second and room data every minute
     useEffect(() => {
         const intervalTime = setInterval(updateTime, 1000);
-        const intervalRoomData = setInterval(updateRoomData, 1000 * 60); // Update room data every minute
+        const intervalRoomData = setInterval(updateRoomData, 1000 * 60);
+        // Clean up intervals on component unmount
         return () => {
-            clearInterval(intervalTime); // Clear interval on component unmount
-            clearInterval(intervalRoomData); // Clear room data interval on component unmount
+            clearInterval(intervalTime);
+            clearInterval(intervalRoomData);
         };
     }, []);
 
@@ -56,7 +56,7 @@ function HomeScreen() {
     }, []);
 
     return (
-        <div className="home-screen">
+        <div className="home-screen" style={{ backgroundColor: '#f0f0f0' }}>
             <h1 className="hs-title">Home Screen</h1>
             <img
                 src="/image2.jpg"
@@ -65,7 +65,7 @@ function HomeScreen() {
             />
             <div className="dashboard">
                 <div className="room-temp">
-                    <table className="table table-hover">
+                    <table className="table table-hover" style={{ backgroundColor: '#a6a6a6' }}>
                         <thead>
                             <tr>
                                 <td>Room Name</td>
@@ -73,12 +73,16 @@ function HomeScreen() {
                             </tr>
                         </thead>
                         <tbody>
-                            {rooms.map(room => (
-                                <tr key={room}>
-                                    <td>{room}</td>
-                                    <td>{roomTemps[room]}°F</td>
-                                </tr>
-                            ))}
+                            {rooms.map(room => {
+                                if (!room.startsWith("debug")) {
+                                    return (
+                                        <tr key={room}>
+                                            <td>{room}</td>
+                                            <td>{roomTemps[room]}°F</td>
+                                        </tr>
+                                    )
+                                }
+                            })}
                         </tbody>
                     </table>
                 </div>
@@ -88,11 +92,13 @@ function HomeScreen() {
                     {weatherData && <p>Current Weather: {weatherData}°F</p>}
                 </div>
                 <div className="active-devices">
-                    <table className="table table-hover">
-                        <tbody>
+                    <table className="table table-hover" style={{ backgroundColor: '#a6a6a6' }}>
+                        <thead>
                             <tr>
-                                <td>Active Devices</td>
+                                <td>Device Name</td>
                             </tr>
+                        </thead>
+                        <tbody>
                             {activeDevices.map(device => (
                                 <tr key={device}>
                                     <td>{device}</td>
@@ -105,5 +111,4 @@ function HomeScreen() {
         </div>
     );
 }
-
 export default HomeScreen;

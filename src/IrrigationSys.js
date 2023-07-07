@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css'; // Import the CSS file
+import './styles.css'; 
 
 
 const IrrigationSys = ({ onSaveDates }) => {
@@ -25,7 +25,7 @@ const IrrigationSys = ({ onSaveDates }) => {
     }
   }, []);
 
-//actual irrigation system layout
+  //actual irrigation system layout
   return (
     <div className="irrigation-body">
       <div className="text-center">
@@ -37,7 +37,7 @@ const IrrigationSys = ({ onSaveDates }) => {
         <input
           type="datetime-local"
           className="datepicker1"
-          style={{ width: '300px',height: '40px' }}
+          style={{ width: '300px', height: '40px' }}
         />
       </div>
       <div className="mt-5 text-center">
@@ -45,11 +45,11 @@ const IrrigationSys = ({ onSaveDates }) => {
         <input
           type="datetime-local"
           className="datepicker2"
-          style={{ width: '300px' ,height: '40px' }}
+          style={{ width: '300px', height: '40px' }}
         />
       </div>
       <div className="text-center mt-5">
-      <button className="save-btnir" onClick={() => {saveOnClick()}}>Add to History</button>
+        <button className="save-btnir" onClick={() => { saveOnClick() }}>Add to History</button>
       </div>
     </div>
   );

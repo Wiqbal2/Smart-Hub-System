@@ -12,6 +12,7 @@ import RoomSchedule from './components/RoomSchedule';
 
 
 function App() {
+  // Initialize device statuses
   const [deviceStatuses, setDevicesStatuses] = useState(() => {
     const storedDeviceStatuses = localStorage.getItem('deviceStatuses');
     return storedDeviceStatuses ? JSON.parse(storedDeviceStatuses) : {

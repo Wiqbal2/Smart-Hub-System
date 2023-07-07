@@ -5,12 +5,6 @@ import { useParams } from 'react-router-dom';
 import { DeviceContext } from './DeviceContext';
 
 
-const initialDeviceStates = {
-  'Coffee-Maker': false,
-  'Robot-Vacuum': false,
-  Fridge: false,
-};
-
 function Device({ onSaveDates }) {
   const [temperature, setTemperature] = useState(75); // Set default temperature to 75°F
   const [isTempSaved, setIsTempSaved] = useState(false); // Track if temperature is saved
@@ -19,13 +13,6 @@ function Device({ onSaveDates }) {
   const { deviceStatuses, setDevicesStatuses } = useContext(DeviceContext);
 
   const { deviceName } = useParams();
-  //new changes dont know if this actually works, gets reset when the user clicks on home
-  useEffect(() => {
-    const storedDeviceStatuses = JSON.parse(localStorage.getItem('deviceStatuses'));
-    if (storedDeviceStatuses) {
-      setDevicesStatuses(storedDeviceStatuses);
-    }
-  }, []);
 
   // Save device statuses to local storage whenever they change
   useEffect(() => {

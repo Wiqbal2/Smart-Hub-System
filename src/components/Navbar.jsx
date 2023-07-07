@@ -11,7 +11,7 @@ function Navbar(props) {
   };
 
   const handleDeviceSubmit = (event) => {
-    
+
     props.addDevice(newDeviceName);
     setNewDeviceName('');
   };
@@ -65,29 +65,29 @@ function Navbar(props) {
 
             {/* DEVICES DROPDOWN */}
             <NavDropdown title="Devices" id="basic-nav-dropdown">
-                    {props.deviceStatuses &&
-                      (() => {
-                        const deviceStatuses = props.deviceStatuses;
-                        const dropdownItems = [];
+              {props.deviceStatuses &&
+                (() => {
+                  const deviceStatuses = props.deviceStatuses;
+                  const dropdownItems = [];
 
-                        for (let device in deviceStatuses) {
-                          // method ensures that only properties directly defined on the deviceStatuses object are considered for the iteration. 
-                          if (deviceStatuses.hasOwnProperty(device)) {
-                            dropdownItems.push(
-                              <NavDropdown.Item
-                                key={device}
-                                href="/"
-                                as={Link}
-                                to={`/Device/${device}`}
-                              >
-                                {device}
-                              </NavDropdown.Item>
-                            );
-                          }
-                        }
+                  for (let device in deviceStatuses) {
+                    // method ensures that only properties directly defined on the deviceStatuses object are considered for the iteration. 
+                    if (deviceStatuses.hasOwnProperty(device)) {
+                      dropdownItems.push(
+                        <NavDropdown.Item
+                          key={device}
+                          href="/"
+                          as={Link}
+                          to={`/Device/${device}`}
+                        >
+                          {device}
+                        </NavDropdown.Item>
+                      );
+                    }
+                  }
 
-                        return dropdownItems;
-                      })()}
+                  return dropdownItems;
+                })()}
 
               <div>
                 <input
@@ -110,7 +110,7 @@ function Navbar(props) {
 
             {/* HISTORY DROPDOWN */}
             <NavDropdown title="History" id="basic-nav-dropdown">
-            {props.selectedDates.map((date, index) => (
+              {props.selectedDates.map((date, index) => (
                 <NavDropdown.Item key={index} href="#">
                   - {date.startDate} to {date.endDate}
                 </NavDropdown.Item>
