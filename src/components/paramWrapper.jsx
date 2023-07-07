@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
  
-//this function gets the name of the rooms from the URL
+// Gets the name of the rooms from the URL
 const withRouter = WrappedComponent => props => {
   const params = useParams();
  

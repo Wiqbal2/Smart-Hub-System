@@ -1,9 +1,8 @@
 import '../styles.css';
-import React, { useState, useContext,useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { DeviceContext } from './DeviceContext';
-
 
 
 const initialDeviceStates = {
@@ -21,17 +20,17 @@ function Device({ onSaveDates }) {
 
   const { deviceName } = useParams();
   //new changes dont know if this actually works, gets reset when the user clicks on home
-    useEffect(() => {
-      const storedDeviceStatuses = JSON.parse(localStorage.getItem('deviceStatuses'));
-      if (storedDeviceStatuses) {
-        setDevicesStatuses(storedDeviceStatuses);
-      }
-    }, []);
+  useEffect(() => {
+    const storedDeviceStatuses = JSON.parse(localStorage.getItem('deviceStatuses'));
+    if (storedDeviceStatuses) {
+      setDevicesStatuses(storedDeviceStatuses);
+    }
+  }, []);
 
-    // Save device statuses to local storage whenever they change
-    useEffect(() => {
-      localStorage.setItem('deviceStatuses', JSON.stringify(deviceStatuses));
-    }, [deviceStatuses]);
+  // Save device statuses to local storage whenever they change
+  useEffect(() => {
+    localStorage.setItem('deviceStatuses', JSON.stringify(deviceStatuses));
+  }, [deviceStatuses]);
 
   const handleToggle = () => {
     setDevicesStatuses({
@@ -139,7 +138,7 @@ function Device({ onSaveDates }) {
           </div>
           <div className='text-center mt-5'>
             <button className='btn btn-primary btn-lg' onClick={() => { saveSettings(); saveOnClick(); }}>
-            SAVE
+              SAVE
             </button>
             {isTempSaved && <p className='temp-saved-message'>{systemMessage}</p>}
           </div>
@@ -176,8 +175,8 @@ function Device({ onSaveDates }) {
           <input type='datetime-local' className='datepicker2' style={{ width: '300px', height: '40px' }} />
         </div>
         <div className='text-center mt-5'>
-          <button className='btn btn-primary btn-lg'onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
-          SAVE
+          <button className='btn btn-primary btn-lg' onClick={() => { saveDeviceSetting(); saveOnClick(); }}>
+            SAVE
           </button>
           {isDeviceSaved && <p className='device-saved-message'>{systemMessage}</p>}
         </div>

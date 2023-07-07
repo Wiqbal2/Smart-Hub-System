@@ -12,11 +12,15 @@ import RoomSchedule from './components/RoomSchedule';
 
 
 function App() {
-  const [deviceStatuses, setDevicesStatuses] = useState({
-    'Coffee-Maker': false,
-    'Robot-Vacuum': false,
-    'Fridge': false,
+  const [deviceStatuses, setDevicesStatuses] = useState(() => {
+    const storedDeviceStatuses = localStorage.getItem('deviceStatuses');
+    return storedDeviceStatuses ? JSON.parse(storedDeviceStatuses) : {
+      'Coffee-Maker': false,
+      'Robot-Vacuum': false,
+      'Fridge': false,
+    };
   });
+
   const [selectedDates, setSelectedDates] = useState([]);
 
   const addDevice = (deviceName) => {
@@ -32,7 +36,7 @@ function App() {
       hour: 'numeric',
       minute: 'numeric',
     });
-  
+
     const newEndDate = new Date(endDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -57,16 +61,16 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/Room/:id" element={<><Room/><RoomSchedule 
-            onSaveDates={handleSaveDates}/></>} />            
+            <Route path="/Room/:id" element={<><Room /><RoomSchedule
+              onSaveDates={handleSaveDates} /></>} />
             <Route path="/Device/:deviceName" element={<Device
               onSaveDates={handleSaveDates} />} />
             <Route
               path="/irrigation"
-              element={<IrrigationSys 
-                onSaveDates={handleSaveDates} />}/>
-            <Route path="/lightsys" element={<LightSys 
-            onSaveDates={handleSaveDates} />} />
+              element={<IrrigationSys
+                onSaveDates={handleSaveDates} />} />
+            <Route path="/lightsys" element={<LightSys
+              onSaveDates={handleSaveDates} />} />
           </Routes>
         </Router>
       </div>
