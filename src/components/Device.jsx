@@ -109,10 +109,10 @@ function Device({ onSaveDates }) {
         </div>
 
         {/* Temperature component */}
-        <div className='temp-bodyDevice'>
-          <div className='app-container'>
-            <div className='temperature-display-container'>
-              <div className='temperature-display'>{temperature}°F</div>
+        <div className='temp-body'>
+          <div className='temp-container'>
+            <div className='temperature-display'>
+              <div className='actual-temp'>{temperature}°F</div>
             </div>
             <div className='button-div'>
               <button onClick={increaseTemperature}>
