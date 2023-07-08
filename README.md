@@ -8,7 +8,8 @@ Prerequisites to Run App:
 2. Install Git
 
 Runing App:
-1. cd into project directory
-2. Run `npm install` in project terminal
-3. Run `npm start` in project terminal
+Once project folder is open in VS code:
+1. cd into project directory by right clicking App.js file and hit "Open in integrated terminal".This should render a terminal at the bottom of VS code
+3. Type `npm install` in project terminal and hit enter 
+4. Type `npm start` in project terminal and hit enter.This will open up the project in a live server
 Everything should be running now
